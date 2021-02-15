@@ -1,4 +1,113 @@
-.App {
-  font-family: sans-serif;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  background-color: #1f252f;
+  padding: 0 16px;
+}
+
+header {
+  align-items: center;
+  background-color: #332355;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 100px;
+  justify-content: space-between;
+  margin: auto -16px;
+  padding: 16px 32px;
+  width: 100vw;
+}
+
+header h1 {
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  text-shadow: 2px 2px #000000;
+  display: inline-block;
+}
+
+header img {
+  max-height: 80%;
+}
+
+.cardContainer {
+  margin: 15px 0;
+  display: grid;
+  grid-template-columns: repeat(3, calc((100% - 30px) / 3));
+  grid-template-rows: auto;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  width: 100%;
+}
+
+.card {
+  background: #fff;
+  border-radius: 7px;
+  padding: 10px;
+  width: 100%;
+  float: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card:hover {
+  box-shadow: 0 3px 8px #009921;
+}
+
+.card h1 {
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.iconSection {
+  margin-left: 20px;
+}
+
+.icon {
+  margin-left: 10px;
+}
+
+.icon:hover {
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.1);
+}
+
+.icon-edit:hover {
+  color: #004aa1;
+}
+
+.icon-delete:hover {
+  color: #ff1f38;
+}
+
+footer {
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
   text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    padding: 0px 2px;
+  }
+
+  header h1 {
+    font-size: 18px;
+  }
+
+  header img {
+    max-width: 40vw;
+    height: auto;
+  }
 }

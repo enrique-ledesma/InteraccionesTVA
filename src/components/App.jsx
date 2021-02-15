@@ -1,10 +1,14 @@
 import "../../public/styles.css";
+import Header from "./Header";
+import Footer from "./Footer";
+import CardContainer from "./CardContainer";
 
 export default function App() {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+    <div>
+      <Header />
+      <CardContainer />
+      <Footer />
     </div>
   );
 }
