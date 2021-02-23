@@ -11,7 +11,25 @@ body {
   padding: 0 16px;
 }
 
+.background-layer {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  right: 0;
+  backdrop-filter: blur(10px);
+  z-index: 2;
+  display: none;
+}
+
+button:focus {
+  outline: none;
+}
+
 header {
+  z-index: 1000;
+  top: 0px;
+  position: fixed;
   align-items: center;
   background-color: #332355;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
@@ -36,8 +54,8 @@ header img {
   max-height: 80%;
 }
 
-.cardContainer {
-  margin: 15px 0;
+.card-container {
+  margin: 115px 0 15px;
   display: grid;
   grid-template-columns: repeat(3, calc((100% - 30px) / 3));
   grid-template-rows: auto;
@@ -46,12 +64,70 @@ header img {
   width: 100%;
 }
 
+.card-creator {
+  display: none;
+}
+
+.card-creator.expanded {
+  padding: 30px 15px;
+  height: fit-content;
+  max-width: 500px;
+  transition: all 600ms ease-out;
+  font-family: Montserrat;
+  background: #fff;
+  border-radius: 7px;
+  margin: 15px 0;
+  text-align: center;
+  display: block;
+  position: fixed;
+  width: 500px;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px; /* Negative half of height. */
+  margin-left: -250px; /* Negative half of width. */
+  z-index: 1000;
+}
+
+.card-creator h1 {
+  font-size: 20px;
+}
+
+.card-creator input {
+  display: block;
+  margin: 15px auto;
+  padding: 7px;
+  background-color: #ffffff;
+  color: #000000;
+  border-style: hidden;
+  border-radius: 7px;
+  box-shadow: 0px 0px 5px rgba(66, 66, 66, 0.75);
+  text-shadow: 0px 0px 0px rgba(66, 66, 66, 0.75);
+  font-size: 16px;
+  width: calc(100% - 30px);
+}
+
+.card-creator-button {
+  box-shadow: 0px 10px 14px -7px #272d2d;
+  background-color: #332355;
+  border-radius: 7px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 8px 12px;
+  text-shadow: 0px 1px 0px #3d768a;
+}
+
+.card-creator-button:hover {
+  background: linear-gradient(to bottom, #332355 5%, #332355 100%);
+  background-color: #332355;
+}
+
 .card {
   background: #fff;
   border-radius: 7px;
   padding: 10px;
   width: 100%;
-  float: left;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -66,12 +142,17 @@ header img {
   margin-left: 10px;
 }
 
-.iconSection {
+.icon-section {
   margin-left: 20px;
+  display: flex;
+  flex-direction: row;
 }
 
-.icon {
-  margin-left: 10px;
+.icon-close {
+  font-size: 28px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
 
 .icon:hover {
@@ -90,24 +171,44 @@ header img {
 footer {
   color: #ffffff;
   font-family: "Montserrat", sans-serif;
-  position: absolute;
   text-align: center;
   bottom: 0;
   width: 100%;
   height: 2.5rem;
+  position: fixed;
 }
 
 @media only screen and (max-width: 600px) {
   header {
-    padding: 0px 2px;
+    top: 0px;
+    padding: 5px 2px;
+    flex-direction: column;
   }
 
-  header h1 {
-    font-size: 18px;
+  #header-btn-add {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
   }
 
   header img {
-    max-width: 40vw;
-    height: auto;
+    max-width: 250px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+
+  .card-creator.expanded {
+    margin-left: -175px;
+    max-width: 350px;
+  }
+
+  .card h1 {
+    font-size: 16px;
   }
 }
