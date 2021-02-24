@@ -12,6 +12,8 @@ function CardContainer(props) {
           onDelete={props.onDelete}
           enabled={interaction.enabled}
           enableCard={props.enableCard}
+          updateCard={props.updateCard}
+          url={interaction.url}
         />
       ))}
     </div>

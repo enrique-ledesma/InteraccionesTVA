@@ -3,18 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import { v4 as uuidv4 } from "uuid";
 
-export function toggleCreator() {
-  const creator = document.getElementsByClassName("card-creator")[0];
-  const background = document.getElementsByClassName("background-layer")[0];
-  creator.classList.toggle("expanded");
-  if (creator.classList.contains("expanded")) {
-    background.style.display = "block";
-  } else {
-    background.style.display = "none";
-  }
-}
-
 function CardCreator(props) {
+  function toggleCreator() {
+    props.toggleCreator(!props.currentState);
+  }
   const [card, setCard] = useState({
     id: uuidv4(),
     title: "",
@@ -50,9 +42,10 @@ function CardCreator(props) {
         className="icon icon-close"
         onClick={toggleCreator}
       />
-      <h1>Crear nueva interacción</h1>
+      <h1 className="card-creator-h1">Crear nueva interacción</h1>
       <form>
         <input
+          className="card-creator-input"
           name="title"
           type="text"
           placeholder="Título de la interacción"
@@ -60,6 +53,7 @@ function CardCreator(props) {
           onChange={handleChange}
         />
         <input
+          className="card-creator-input"
           name="url"
           type="text"
           placeholder="URL"
